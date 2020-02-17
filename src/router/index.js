@@ -1,29 +1,51 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Login from "@/components/Auth/Login";
+import Profile from "@/components/Profile";
+import PublicProfile from "@/components/PublicProfile";
+import Feed from "@/components/Feed";
+import Competition from "@/components/Competition";
 
-Vue.use(VueRouter)
+import AuthGuard from "./auth-guard";
+
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: Home
+    path: "/",
+    name: "profile",
+    component: Profile,
+    beforeEnter: AuthGuard
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: "/profile/:id",
+    name: "public_profile",
+    component: PublicProfile,
+    beforeEnter: AuthGuard
+  },
+  {
+    path: "/competition",
+    name: "competition",
+    component: Competition,
+    beforeEnter: AuthGuard
+  },
+  {
+    path: "/feed",
+    name: "feed",
+    component: Feed,
+    beforeEnter: AuthGuard
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: Login
   }
-]
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
   routes
-})
+});
 
-export default router
+export default router;
