@@ -6,6 +6,7 @@ A progressive web app for an in-family weight-loss competition. The purpose of t
 
 - VueJS/Vuex
 - Firebase (w Firestore)
+- Facebook login
 - Vuetify
 - vuexfire
 - moment.js
@@ -14,6 +15,6 @@ A progressive web app for an in-family weight-loss competition. The purpose of t
 
 If you wish to set up your own app for you own competition, contact me at hello@zseer.eu and I will kindly help you out with instructions.
 
-## Screenshot
+## Screenshots
 
 ![Screenshot](https://dev.zseer.eu/fitwins.jpg)
